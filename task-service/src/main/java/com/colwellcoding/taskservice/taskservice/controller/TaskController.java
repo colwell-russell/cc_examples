@@ -5,25 +5,28 @@ import com.colwellcoding.taskservice.taskservice.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @RestController("v1/task")
 public class TaskController {
 
     @Autowired
     private TaskService taskService;
 
-    @GetMapping("/{id}")
-    public Optional findTaskById(@PathVariable("id")Long id){
-        return taskService.findTaskById(id);
+    @GetMapping()
+    public String hello(){
+        return "Hello";
     }
 
-    @PostMapping()
+    @GetMapping("/find/{id}")
+    public Task findTaskById(@PathVariable("id")Long id){
+        return (Task)taskService.findTaskById(id).get();
+    }
+
+    @PostMapping(path = "/members", consumes = "application/json", produces = "application/json")
     public Task createTask(@RequestBody Task task) {
         return taskService.saveTask(task);
     }
 
-    @PutMapping()
+    @PutMapping(path = "/members", consumes = "application/json", produces = "application/json")
     public Task updateTask(@RequestBody Task task) {
         return taskService.saveTask(task);
     }
