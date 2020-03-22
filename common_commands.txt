@@ -1,0 +1,6 @@
+./gradlew build
+./gradlew jibDockerBuild --image=colwellcoding/dockerize-demo
+
+docker run -p 8080:8080 -t colwellcoding/dockerize-demo
+docker ps
+docker kill
