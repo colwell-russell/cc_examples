@@ -1,0 +1,14 @@
+version: '3'
+services:
+  task-service:
+    image: colwellcoding/task-service
+    ports:
+      - "8085:8085"
+    links:
+      - "cc-netflix:eureka"
+    depends_on:
+      - "cc-netflix"
+  cc-netflix:
+    image: colwellcoding/cc-netflix
+    ports:
+      - "8761:8761"
