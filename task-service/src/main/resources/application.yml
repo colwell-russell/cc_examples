@@ -1,6 +1,9 @@
 spring:
   application:
     name: task-service
+  data:
+    mongodb:
+      host: mongo
 
 server:
   port: 8085
@@ -10,3 +13,4 @@ eureka:
       enabled: true
     serviceUrl:
       defaultZone: http://eureka:8761/eureka/
+

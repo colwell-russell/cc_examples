@@ -1,14 +1,21 @@
 version: '3'
 services:
   task-service:
+    build: .
     image: colwellcoding/task-service
     ports:
       - "8085:8085"
     links:
       - "cc-netflix:eureka"
+      - "mongo-db:mongo"
     depends_on:
       - "cc-netflix"
+      - "mongo-db"
   cc-netflix:
     image: colwellcoding/cc-netflix
     ports:
       - "8761:8761"
+  mongo-db:
+    image: colwellcoding/mongo
+    ports:
+      - "27017:27017"

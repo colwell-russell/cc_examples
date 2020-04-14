@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class LoadTasks {
 
-    @Bean
-    CommandLineRunner initDB(TaskRepository taskRepository) {
-        return args -> {
-            log.info("Loading task1: " + taskRepository.save(new Task("TEST", "NEW")));
-        };
-    }
+//    @Bean
+//    CommandLineRunner initDB(TaskRepository taskRepository) {
+//        return args -> {
+//            log.info("Loading task1: " + taskRepository.save(new Task("TEST", "NEW")));
+//        };
+//    }
 }
