@@ -7,15 +7,22 @@ services:
       - "8085:8085"
     links:
       - "cc-netflix:eureka"
-      - "mongo-db:mongo"
+      - "mariadb:db"
     depends_on:
       - "cc-netflix"
-      - "mongo-db"
+      - "mariadb"
   cc-netflix:
     image: colwellcoding/cc-netflix
     ports:
       - "8761:8761"
-  mongo-db:
-    image: colwellcoding/mongo
+  mariadb:
+    build: ../mariadb/.
+    image: colwellcoding/mariadb
     ports:
-      - "27017:27017"
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: task_service
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test
+      MYSQL_ROOT_HOST: '%'

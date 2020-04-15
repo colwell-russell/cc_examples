@@ -2,7 +2,7 @@ package com.colwellcoding.micro.taskservice.exception;
 
 public class TaskNotFoundException extends RuntimeException {
 
-    public TaskNotFoundException(String id) {
+    public TaskNotFoundException(Long id) {
         super("Could not find task " + id);
     }
 }

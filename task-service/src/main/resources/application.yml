@@ -1,9 +1,15 @@
 spring:
   application:
     name: task-service
-  data:
-    mongodb:
-      host: mongo
+  datasource:
+    url: jdbc:mariadb://db:3306/task_service
+    username: test
+    password: test
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.MariaDBDialect
 
 server:
   port: 8085

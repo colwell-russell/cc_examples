@@ -18,7 +18,7 @@ public class TaskController {
     private TaskRepository taskRepository;
 
     @GetMapping("/id/{id}")
-    public EntityModel<Task> findTask(@PathVariable String id) {
+    public EntityModel<Task> findTask(@PathVariable Long id) {
         Task task = taskRepository.findById(id).orElseThrow(() -> new TaskNotFoundException(id));
 
         return new EntityModel<Task>(task,
